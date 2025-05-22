@@ -1,12 +1,9 @@
----
-
 # **Anti-Sideloading Hosted Platform License v1.0**  
 **First Published: May 23, 2025**  
 **Copyright © 2025 UlteSoft Open Source Organization**  
 **Licensed under the Anti-Sideloading Hosted Platform License v1.0 (ASHP-1.0)**  
 **Everyone is permitted to copy and distribute verbatim copies of this license document, but modification is prohibited.**  
 
----
 
 ## **1. Definitions**  
 ### 1.1 **"Hosted Platform"** means an execution environment providing:  
@@ -31,8 +28,6 @@ A machine-readable identifier structured as `<architecture>[-vendor][-system][-e
 - `riscv64-unknown-linux-openwrt` (Generic vendor)  
 - `armv7-linux-android` (Omitted vendor, `android` as `extra`)  
 
----
-
 #### **Technical Rationale**  
 This extended Triplet format:  
 1. **Backward Compatibility**: Maintains compatibility with legacy `<architecture-vendor-system>` conventions (e.g., GNU triplets).  
@@ -42,18 +37,12 @@ This extended Triplet format:
    - Security contexts (`sel4`, `tee`, `sgx`)  
 3. **Vendor Neutrality**: Explicit `unknown` vendor designation prevents ambiguous commercial claims.  
 
----
-
 #### **Compliance Implications**  
 - A Platform Triplet `armv8-unknown-linux-android` and `armv8-google-linux-android` are considered **distinct** due to differing vendors.  
 - Triplets without `extra` (e.g., `x86_64-unknown-linux`) imply the **default** runtime environment for that OS.  
 
----
-
 
 ### 1.3 **"Sideloading"** means installing software outside the Hosted Platform’s curated distribution channels.  
-
----
 
 ## **2. License Grant**  
 ### 2.1 **Copyright License**: Subject to Section 3, You are granted a perpetual, worldwide, non-exclusive license to:  
@@ -62,8 +51,6 @@ This extended Triplet format:
     (c) Publicly perform/display the Work.  
 
 ### 2.2 **Patent License**: Contributors grant You a non-exclusive, royalty-free patent license to make/use/sell the Work.  
-
----
 
 ## **3. Conditions and Limitations**  
 ### **3.1 Hosted Platform Compliance**  
@@ -85,8 +72,6 @@ If a Hosted Platform restricts Sideloading for a specific Platform Triplet:
     (b) Platform vendors must issue public revocation notices;  
     (c) Affected Triplets are blacklisted in the reference compliance registry.  
 
----
-
 ## **4. Technical Validation**  
 ### 4.1 **Compliance Proof**: Platform vendors must provide:  
     (a) A formal specification of Platform Triplet generation rules;  
@@ -95,17 +80,11 @@ If a Hosted Platform restricts Sideloading for a specific Platform Triplet:
 
 ### 4.2 **Attestation Protocol**: Compliance evidence shall be signed using W3C Verifiable Credentials and published in a decentralized ledger.  
 
----
-
 ## **5. Termination**  
 Failure to comply with Section 3 automatically terminates all rights. Termination does not affect parties in compliance.  
 
----
-
 ## **6. Disclaimer**  
 **UNLESS REQUIRED BY APPLICABLE LAW, THE WORK IS PROVIDED "AS IS" WITHOUT WARRANTIES. IN NO EVENT SHALL CONTRIBUTORS BE LIABLE FOR DIRECT/INDIRECT DAMAGES.**  
-
----
 
 ## **7. Jurisdictional Neutrality & Enforcement**  
 ### **7.1 Sovereign Immunity**  
@@ -130,4 +109,3 @@ By exercising rights under this License, all parties consent to:
 **SPDX Identifier**: `ASHP-1.0`  
 **Compatibility**: Combines Apache-2.0 patent/copyright clauses with platform freedom constraints.  
 
----
