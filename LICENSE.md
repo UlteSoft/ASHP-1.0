@@ -45,13 +45,13 @@ This extended Triplet format:
 
 1. **Fork Differentiation**  
     - Derivative OS versions **must** declare distinct `variant` values from their base systems  
-    * OpenHarmony: aarch64-ohos-v23a (Compliant)  
-    * HarmonyNEXT: aarch64-huawei-ohos-harmony_next (Violates §2.1) 
+    * OpenHarmony: aarch64-linux-ohos (Compliant)  
+    * HarmonyNEXT: aarch64-linux-ohos-harmony_next (Violates §3.1) 
 
 2. **Vendor-System Binding**  
     * Darwin (generic): unknown-apple-darwin (Compliant)
     * macOS: unknown-apple-darwin-macos (Compliant)
-    * iOS: unknown-apple-darwin-ios (Violates §2.1) 
+    * iOS: aarch64-apple-darwin-ios (Violates §3.1) 
 
 3. **Mandatory Requirements:**  
     (a) **Technical Descriptor Obligation**  
