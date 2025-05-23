@@ -53,10 +53,15 @@ This extended Triplet format:
     * macOS: unknown-apple-darwin-macos (Compliant)
     * iOS: unknown-apple-darwin-ios (Violates §2.1) 
 
-3. **Prohibition of Generic Variants**  
-    Reserved `variant` values:  
-    - `generic`, `default`, `base` - Forbidden for commercial products  
-    - Must use technical descriptors (e.g., `watchos`, `iot_edge`)  
+3. **Mandatory Requirements:**  
+    (a) **Technical Descriptor Obligation**  
+        Any modification to the original platform's sideloading policy **must** be reflected through unique technical descriptors in the `variant` field.  
+
+    (b) **Violation Annotation Rules**  
+        Platforms violating §3.1 **shall** be identified with **verbatim violation markers** in their triplets:  
+        ``` 
+        {architecture}-{vendor}-{system}-{violation_type}_{technical_descriptor}  
+        ```  
 
 #### **Fork Identification Protocol**  
     Platforms must implement automated variant detection:

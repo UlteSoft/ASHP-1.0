@@ -28,6 +28,15 @@ A machine-readable identifier structured as `<architecture>[-vendor][-system][-e
 - `riscv64-unknown-linux-openwrt` (Generic vendor)  
 - `armv7-linux-android` (Omitted vendor, `android` as `extra`)  
 
+#### **Technical Rationale**  
+This extended Triplet format:  
+1. **Backward Compatibility**: Maintains compatibility with legacy `<architecture-vendor-system>` conventions (e.g., GNU triplets).  
+2. **OS Precision**: The `extra` field allows granular identification of:  
+    - Libc implementations (`gnu`, `musl`, `bionic`)  
+    - Runtime environments (`win32`, `coreclr`, `nodejs`)  
+    - Security contexts (`sel4`, `tee`, `sgx`)  
+3. **Vendor Neutrality**: Explicit `unknown` vendor designation prevents ambiguous commercial claims.  
+
 #### **Compliance Implications**  
 - A Platform Triplet `armv8-unknown-linux-android` and `armv8-google-linux-android` are considered **distinct** due to differing vendors.  
 - Triplets without `extra` (e.g., `x86_64-unknown-linux`) imply the **default** runtime environment for that OS.  
@@ -44,10 +53,15 @@ A machine-readable identifier structured as `<architecture>[-vendor][-system][-e
     * macOS: unknown-apple-darwin-macos (Compliant)
     * iOS: unknown-apple-darwin-ios (Violates §2.1) 
 
-3. **Prohibition of Generic Variants**  
-    Reserved `variant` values:  
-    - `generic`, `default`, `base` - Forbidden for commercial products  
-    - Must use technical descriptors (e.g., `watchos`, `iot_edge`)  
+3. **Mandatory Requirements:**  
+    (a) **Technical Descriptor Obligation**  
+        Any modification to the original platform's sideloading policy **must** be reflected through unique technical descriptors in the `variant` field.  
+
+    (b) **Violation Annotation Rules**  
+        Platforms violating §3.1 **shall** be identified with **verbatim violation markers** in their triplets:  
+        ``` 
+        {architecture}-{vendor}-{system}-{violation_type}_{technical_descriptor}  
+        ```  
 
 #### **Fork Identification Protocol**  
     Platforms must implement automated variant detection:
