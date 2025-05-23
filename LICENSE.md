@@ -28,6 +28,15 @@ A machine-readable identifier structured as `<architecture>[-vendor][-system][-e
 - `riscv64-unknown-linux-openwrt` (Generic vendor)  
 - `armv7-linux-android` (Omitted vendor, `android` as `extra`)  
 
+#### **Technical Rationale**  
+This extended Triplet format:  
+1. **Backward Compatibility**: Maintains compatibility with legacy `<architecture-vendor-system>` conventions (e.g., GNU triplets).  
+2. **OS Precision**: The `extra` field allows granular identification of:  
+    - Libc implementations (`gnu`, `musl`, `bionic`)  
+    - Runtime environments (`win32`, `coreclr`, `nodejs`)  
+    - Security contexts (`sel4`, `tee`, `sgx`)  
+3. **Vendor Neutrality**: Explicit `unknown` vendor designation prevents ambiguous commercial claims.  
+
 #### **Compliance Implications**  
 - A Platform Triplet `armv8-unknown-linux-android` and `armv8-google-linux-android` are considered **distinct** due to differing vendors.  
 - Triplets without `extra` (e.g., `x86_64-unknown-linux`) imply the **default** runtime environment for that OS.  
@@ -36,13 +45,13 @@ A machine-readable identifier structured as `<architecture>[-vendor][-system][-e
 
 1. **Fork Differentiation**  
     - Derivative OS versions **must** declare distinct `variant` values from their base systems  
-    * OpenHarmony: aarch64-ohos-v23a (Compliant)  
-    * HarmonyNEXT: aarch64-huawei-ohos-harmony_next (Violates §2.1) 
+    * OpenHarmony: aarch64-linux-ohos (Compliant)  
+    * HarmonyNEXT: aarch64-linux-ohos-harmony_next (Violates §3.1) 
 
 2. **Vendor-System Binding**  
     * Darwin (generic): unknown-apple-darwin (Compliant)
     * macOS: unknown-apple-darwin-macos (Compliant)
-    * iOS: unknown-apple-darwin-ios (Violates §2.1) 
+    * iOS: aarch64-apple-darwin-ios (Violates §3.1) 
 
 3. **Prohibition of Generic Variants**  
     Reserved `variant` values:  
