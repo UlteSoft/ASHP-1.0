@@ -44,7 +44,7 @@ This extended Triplet format:
 #### **Fork Differentiation**
 
 1. **Fork Differentiation**  
-    - Derivative OS versions **must** declare distinct `variant` values from their base systems  
+    Derivative OS versions **must** declare distinct `variant` values from their base systems:
     * OpenHarmony: aarch64-linux-ohos (Compliant)  
     * HarmonyNEXT: aarch64-linux-ohos-harmony_next (Violates §3.1) 
 
