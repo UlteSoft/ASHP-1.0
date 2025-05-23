@@ -101,9 +101,11 @@ If a Hosted Platform restricts Sideloading for a specific Platform Triplet:
 ### 4.1 **Compliance Proof**: Platform vendors must provide:  
     (a) A formal specification of Platform Triplet generation rules;  
     (b) SBOM (Software Bill of Materials) hashes for all ABI-critical components;  
-    (c) Memory-safety proofs for sideloaded code execution paths (e.g., via seL4/CAP\_TABLES).  
 
 ### 4.2 **Attestation Protocol**: Compliance evidence shall be signed using W3C Verifiable Credentials and published in a decentralized ledger.  
+
+### 4.3 **Application-Layer Security Obligations**  
+Any software ("Application") built upon a Hosted Platform using this Work **must** implement technical safeguards to ensure the **secure execution of sideloaded components**.
 
 ## **5. Termination**  
 Failure to comply with Section 3 automatically terminates all rights. Termination does not affect parties in compliance.  
